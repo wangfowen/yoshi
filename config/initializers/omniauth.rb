@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :linked_in, 'CONSUMER_KEY', 'CONSUMER_SECRET'
+  provider :linkedin, '4gmbqt51mc3t', 'DtKf478p7vPi90jx'
 end
