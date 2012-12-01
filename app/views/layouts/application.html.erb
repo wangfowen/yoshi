@@ -35,7 +35,7 @@
                         <li><a href="/">My Posts</a></li>
                         <li><a href="/">My Interviews</a></li>
                     </ul>
-                    <a class="pull-right" href="/">Sign in with LinkedIn</a>
+                    <%= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin), class: "pull-right" %>
                 </div>
             </div>
             
