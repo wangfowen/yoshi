@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div id="show"></div>
 
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<script>
+	new views.PostsShowView({el: "#show"});
+</script>

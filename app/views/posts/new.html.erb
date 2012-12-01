@@ -1,5 +1,5 @@
-<h1>New post</h1>
+<div id="new"></div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', posts_path %>
+<script>
+	new views.PostsNewView({el: "#new"});
+</script>

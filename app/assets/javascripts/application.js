@@ -15,4 +15,9 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require bootstrap-datepicker
+//= require alertify
+//= require_self
 //= require_tree .
+
+views = {};
