@@ -25,7 +25,25 @@
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
-        <%= yield %>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="/">Yoshi</a>
+
+                    <ul class="nav nav-pills">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">My Posts</a></li>
+                        <li><a href="/">My Interviews</a></li>
+                    </ul>
+                    <a class="pull-right" href="/">Sign in with LinkedIn</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="container">
+            <%= yield %>
+        </div>
 
         <script>
             var _gaq=[['_setAccount','UA-XX'],['_trackPageview']];

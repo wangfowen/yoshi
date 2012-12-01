@@ -1,1 +1,43 @@
-<h1>New</h1>
+<h1>New Post</h1>
+
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="title">Title</label>
+    <div class="controls">
+      <input type="text" id="title" placeholder="Developer for Restaurant Website">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="category">Category</label>
+    <div class="controls">
+    	<select id="category">
+			<option value="1">IT</option>
+			<option value="2">Business</option>
+		</select>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="description">Description</label>
+    <div class="controls">
+      <textarea rows="3"></textarea>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="candidate_name">Candidate Name</label>
+    <div class="controls">
+      <input type="text" id="candidate_name" placeholder="John Doe">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="deadline">Interview Deadline</label>
+    <div class="controls">
+      <input type="text" id="deadline">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls submit_box">
+      <button type="submit" id="create_post" class="btn">Submit</button>
+      <div class="spinner"><img src="/assets/spinner.gif"></div>
+    </div>
+  </div>
+</form>
