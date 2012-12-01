@@ -15,4 +15,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require_self
 //= require_tree .
+
+views = {};
