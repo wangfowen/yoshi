@@ -1,4 +1,4 @@
-re "bundler/capistrano"
+require "bundler/capistrano"
 
 set :application, "yoshi"
 set :user, "henrythe9th"
