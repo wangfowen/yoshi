@@ -4,15 +4,14 @@ views.PostsNewView = Backbone.View.extend({
   	'click #create_post': 'createPost'
   },
   initialize: function() {
-	this.render();  	
+    this.render();  	
   },
   render: function() {
   	this.$el.html(this.template());
 
   	$('#deadline').datepicker().on('changeDate', function(e){
       $('.datepicker').hide();
-    });
-  
+    });  
   },
   createPost: function(e) {
   	e.stopPropagation();
@@ -29,7 +28,8 @@ views.PostsNewView = Backbone.View.extend({
     		description: $('#description').val(),
     		candidate_name: $('#candidate_name').val(),
         candidate_email: $('#candidate_email').val(),
-    		deadline: $('#deadline').val()
+    		deadline: new Date($('#deadline').val()),
+        user_id: current_user.get("_id")
       }
   	});
 
