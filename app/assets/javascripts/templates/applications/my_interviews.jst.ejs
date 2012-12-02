@@ -1,0 +1,5 @@
+<h1>My Interviews</h1>
+
+<% applications.each(function(application) { %>
+  <p>Status: <%= application.get("booked") ? "Accepted" : "Pending" %></p>
+<% }) %>
