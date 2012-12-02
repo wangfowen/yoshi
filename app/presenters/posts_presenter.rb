@@ -10,12 +10,9 @@ class PostsPresenter
   end
 
   def as_json(*)
-    #nice date
-    #post user's name
-    #timestamp
-    #user's photo
+    user = User.find(@post.user_id).name
     created_at = @post.created_at.nil? ? nil : @post.created_at.strftime("%D")
     deadline = @post.deadline.nil? ? nil : @post.deadline.strftime("%D")
-    @post.attributes.except("created_at", "deadline").merge("created_at" => created_at, "deadline" => deadline)
+    @post.attributes.except("created_at", "deadline").merge("created_at" => created_at, "deadline" => deadline, "user" => user)
   end
 end

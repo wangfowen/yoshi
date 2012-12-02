@@ -10,6 +10,11 @@ views.PostsShowView = Backbone.View.extend({
   	this.$el.html(this.template({post: this.model}));
   }, 
   apply: function() {
-  	alertify.success("Successfully applied to be an interviewer");
+    if (true) {
+  	 alertify.success("Successfully applied to be an interviewer");
+    }
+    else {
+      alertify.error("Please sign in before applying to be an interviewer");
+    }
   }
 });

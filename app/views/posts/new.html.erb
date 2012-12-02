@@ -2,5 +2,5 @@
 
 <script>
 	var post = new models.Post();
-	new views.PostsNewView({el: "#new", model: post});
+	new views.PostsNewView({el: "#new", model: post, current_user: current_user});
 </script>

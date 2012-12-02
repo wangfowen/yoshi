@@ -2,7 +2,8 @@
 <% posts.each(function(post) { %>
 <a href="/posts/<%= post.get("id") %>">
 	<div class="row post">
-		<p>Posted: <%= post.get("created_at") %></p>
+		<p>Poster: <%= post.get("user") %></p>
+		<p>Posted on: <%= post.get("created_at") %></p>
 		<p>Title: <%= post.get("title") %></p>
 		<p>Category: <%= posts.getCategory(post.get("category")) %></p>
 		<p>Description: <%= post.get("description") %></p>
@@ -11,4 +12,4 @@
 	</div>
 </a>
 <% }) %>
-<a href="/posts/new">Add Post</a>
+<button type="submit" id="new_post" class="btn">Add Post</button>

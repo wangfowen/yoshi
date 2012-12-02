@@ -19,6 +19,15 @@
         <%= stylesheet_link_tag    "application", :media => "all" %>
         <%= javascript_include_tag "application" %>
         <%= csrf_meta_tags %>
+
+        <script>
+        <% if signed_in? %>
+            current_user = new models.User({_id: <%= current_user.id %>});
+            current_user.fetch();
+        <% else %>
+            current_user = null;
+        <% end %>
+        </script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -35,7 +44,11 @@
                         <li><a href="/">My Posts</a></li>
                         <li><a href="/">My Interviews</a></li>
                     </ul>
+                    <% if signed_in? %>
+                    <%= link_to 'Sign out', destroy_user_session_path, method: "delete", class: "pull-right"%></li>
+                    <% else %>
                     <%= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin), class: "pull-right" %>
+                    <% end %>
                 </div>
             </div>
             
