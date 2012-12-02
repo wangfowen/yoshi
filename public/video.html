@@ -15,7 +15,7 @@
   </style>
   
   <script type="text/javascript">
-  
+  //360x270
     //video init
     var apiKey = '21886882';
 	var sessionId = '1_MX4yMTg4Njg4Mn4xMjcuMC4wLjF-U2F0IERlYyAwMSAyMTozODo0OCBQU1QgMjAxMn4wLjAzMjQ0NjI2NX4';
@@ -47,7 +47,8 @@
       subscribeToStreams(event.streams);
 	  
 	  stateManager = session.getStateManager();
-	  stateManager.addEventListener("changed:chat", chatStateChangedHandler);
+	  stateManager.addEventListener("changed:chat", chatStateChangedHandler {width: 120
+																			 height: 90});
     }
 
     function streamCreatedHandler(event) {
@@ -63,12 +64,13 @@
         }
 
         // Create the div to put the subscriber element in to
-        var div = document.createElement('div');
+        /*var div = document.createElement('div');
         div.setAttribute('id', 'stream' + streams[i].streamId);
-        document.body.appendChild(div);
+        document.body.appendChild(div);*/
 
         // Subscribe to the stream
-        session.subscribe(streams[i], div.id);
+        session.subscribe(streams[i], "other", {width: 360,
+												height: 270});
 		
       }
     }
@@ -97,19 +99,24 @@
 
 <body>
   <div>
-	  <div>
+	  <div> <!-- horizonal align -->
+		  <div> <!-- vertical align -->
+			  <!-- other video -->
+			  <div id="other" />
+			  
+			  <!-- chat box -->
+			  <textarea id="chatbox" > </textarea>
+			  
+			  <div id="inputarea"> <!-- align horizontal -->
+				  <input id="inputText" type="text" />
+				  <input id="submitChat" type="submit" value="send" />
+			  </div>
+		  </div>
+		  
 		  <!-- Video Box-->
 		  <div id="myPublisherDiv"></div>
-		  <!-- chat box -->
-		  <textarea id="chatbox" > </textarea>
-		  
-		  <div id="inputarea">
-			  <input id="inputText" type="text" />
-			  <input id="submitChat" type="submit" value="send" />
-		  </div>
+		
 	  </div>
-	  <div id="empty"/>
-	  <div id="avatar"/>
   </div>
 </body>
 </html>
