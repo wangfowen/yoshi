@@ -44,7 +44,7 @@ views.PostsNewView = Backbone.View.extend({
       });
     }
     else {
-      alertify.error("Please Sign in first before posting a new interview");
+      alertify.error("Please sign in first before posting");
     } 
   }
 });

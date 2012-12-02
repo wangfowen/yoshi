@@ -1,0 +1,8 @@
+<div id="index"></div>
+
+<script>
+	var applications = new collections.Applications({current: true});
+	applications.fetch({success: function() {
+		new views.ApplicationsMyInterviewsView({el: "#index", collection: applications});	
+	}});
+</script>

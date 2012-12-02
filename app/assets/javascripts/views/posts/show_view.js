@@ -1,7 +1,8 @@
 views.PostsShowView = Backbone.View.extend({
   template: JST["templates/posts/show"],
   events: {
-  	'click #apply': 'apply'
+  	'click #apply': 'apply',
+    'click #show_user': 'showUser'
   },
   initialize: function() {
 	this.render();  	
@@ -11,10 +12,36 @@ views.PostsShowView = Backbone.View.extend({
   }, 
   apply: function() {
     if (current_user) {
-  	 alertify.success("Successfully applied to be an interviewer");
+      var application = new models.Application();
+
+      application.set({
+        application: {
+          post_id: this.model.get("id")
+        }
+      });
+
+      application.save({}, {
+        success: function() {
+          alertify.success("Successfully applied to be an interviewer");
+        },
+        error: function() {
+          alertify.error("Application failed");
+        }
+      });
     }
     else {
       alertify.error("Please sign in before applying to be an interviewer");
     }
+  },
+  showUser: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var user = new models.User({_id: $(e.target).closest('#show_user').data('user')});
+    user.fetch({
+      success: function() {
+        new views.UsersShowView({el: "#content", model: user});
+      }
+    });
   }
 });

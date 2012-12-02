@@ -6,9 +6,14 @@ Yoshi::Application.routes.draw do
     get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  resources :posts
+  resources :posts do
+    resources :applications
+  end
+  
   resources :users
   resources :evaluations
+  resources :bookings
+  resources :applications
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,6 +66,7 @@ Yoshi::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'posts#index'
   match 'my_posts' => 'posts#my_posts'
+  match 'my_interviews' => 'applications#my_interviews'
 
   # See how all your routes lay out with "rake routes"
 

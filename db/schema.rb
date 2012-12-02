@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202051950) do
+ActiveRecord::Schema.define(:version => 20121202081455) do
+
+  create_table "applications", :force => true do |t|
+    t.integer  "applicant_id"
+    t.integer  "post_id"
+    t.boolean  "booked",       :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "bookings", :force => true do |t|
+    t.string   "link"
+    t.integer  "application_id"
+    t.integer  "post_id"
+    t.boolean  "conducted",      :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
 
   create_table "evaluations", :force => true do |t|
     t.integer  "post_id"
@@ -21,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20121202051950) do
     t.boolean  "recommended",  :default => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.boolean  "completed",    :default => false
+    t.boolean  "read",         :default => false
   end
 
   create_table "posts", :force => true do |t|

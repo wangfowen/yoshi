@@ -1,8 +1,8 @@
-<h1>Show</h1>
-<div class="row">
-	<p>Poster: <%= post.get("user") %></p>
+<h1><%= post.get("title") %></h1>
+<div>
+	<p><img src="<%= post.get("profile_pic_url") %>"></p>
+	<p>Poster: <a id="show_user" data-user="<%= post.get("user_id") %>" href="#"><%= post.get("user") %></a></p>
 	<p>Posted on: <%= post.get("created_at") %></p>
-	<p>Title: <%= post.get("title") %></p>
 	<p>Category: <%= post.getCategory() %></p>
 	<p>Description: <%= post.get("description") %></p>
 	<p>Candidate Name: <%= post.get("candidate_name") %></p>
@@ -10,5 +10,9 @@
 </div>
 
 <% if (current_user.get("id") !== post.get("user_id")) { %>
-<button class="btn" id="apply">Apply for Interview</button>
+	<% if (!post.get("has_application")) { %>
+		<button class="btn" id="apply">Apply for Interview</button>
+	<% } else { %>
+		<p>Pending</p>
+	<% } %>
 <% } %>

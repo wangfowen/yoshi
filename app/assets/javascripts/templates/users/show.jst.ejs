@@ -1,4 +1,6 @@
-<h1>Show</h1>
-<div class="row">
-	<p>Poster: <%= user.get("name") %></p>
+<h1><%= user.get("name") %></h1>
+<div>
+	<p><img src="<%= user.get("profile_pic_url") %>"></p>
+	<p>Headline: <%= user.get("headline") %></p>
+	<p>Industry: <%= user.get("industry") %></p>
 </div>
