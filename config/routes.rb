@@ -8,6 +8,7 @@ Yoshi::Application.routes.draw do
 
   resources :posts do
     resources :applications
+    resources :evaluations
   end
   
   resources :users
