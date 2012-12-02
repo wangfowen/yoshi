@@ -41,12 +41,14 @@
 	
 	function sessionConnectedHandler(event) {
       publisher = TB.initPublisher(apiKey, 'myPublisherDiv');
-      session.publish(publisher);
+      var props = {width: 120,
+					 height: 90};
+					 
+	  session.publish(publisher, props);
 
       // Subscribe to streams that were in the session when we connected
-	  var props = {width: 360,
-					 height: 270};
-      subscribeToStreams(event.streams, props);
+	
+      subscribeToStreams(event.streams);
 	  
 	  stateManager = session.getStateManager();
 	  
@@ -56,13 +58,10 @@
 
     function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
-	  	var props = {width: 120,
-					 height: 90};
-					 
-      subscribeToStreams(event.streams, props);
+      subscribeToStreams(event.streams);
     }
 
-    function subscribeToStreams(streams, props) {
+    function subscribeToStreams(streams) {
       for (var i = 0; i < streams.length; i++) {
         // Make sure we don't subscribe to ourself
         if (streams[i].connection.connectionId == session.connection.connectionId) {
@@ -75,7 +74,9 @@
         document.body.appendChild(div);*/
 
         // Subscribe to the stream
-	
+	var props = {width: 360,
+					 height: 270};
+					 
         session.subscribe(streams[i], "other", props);
 		
       }
