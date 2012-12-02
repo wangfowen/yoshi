@@ -2,8 +2,7 @@ views.PostsMyPostsView = Backbone.View.extend({
   template: JST["templates/posts/my_posts"],
   events: {
     'click #new_post': 'newPost',
-    'click .post': 'showPost',
-    'click #see-evaluation': 'showEvaluation'
+    'click .post': 'showPost'
   },
   initialize: function() {
     this.render();	
