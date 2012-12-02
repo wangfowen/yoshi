@@ -1,5 +1,7 @@
-<h1>New evaluation</h1>
+<div id="new"></div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', evaluations_path %>
+<script>
+	evaluation = new models.Evaluation({ _post_id: <%= @evaluation.post_id %>, _id: <%= @evaluation.id %>});
+	evaluation.fetch();
+	new views.EvaluationsNewView({el: "#new", model: evaluation, current_user: current_user});
+</script>

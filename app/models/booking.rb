@@ -2,6 +2,7 @@ class Booking < ActiveRecord::Base
   attr_accessible :post_id, :conducted, :link, :application_id
   belongs_to :application
   after_save :finish_booking
+  has_one :evaluation
   
   def finish_booking
     #send email

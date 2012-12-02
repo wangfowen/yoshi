@@ -26,11 +26,16 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   # GET /evaluations/new.json
   def new
-    @evaluation = Evaluation.new
+    if params[:post_id]
+      @post = Post.find(params[:post_id])
+      @evaluation = @post.evaluation
+    else
+      @evaluation = Evaluation.new
+    end
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @evaluation }
+      format.json { render json: EvaluationsPresenter.new(@evaluation) }
     end
   end
 

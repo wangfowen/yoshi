@@ -15,7 +15,7 @@ class EvaluationsPresenter
     
     post = Post.find_by_id(@evaluation.post_id)
     
-    @evaluation.attributes.except("created_at").merge("created_at" => created_at, "user" => user.name, "user_id" => user.id, 
+    @evaluation.attributes.except("created_at").merge("created_at" => created_at, "user" => user.name, "user_id" => user.id,  "user_email" => user.email,
       "profile_pic_url" => user.profile_pic_url, "title" => post.title)
   end
 end

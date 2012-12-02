@@ -1,0 +1,46 @@
+<h1>New Evaluation</h1>
+
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="post-title">Post Title</label>
+    <div class="controls">
+      <input type="text" id="title" text="<%= evaluation.get("title") %>" placeholder="<%= evaluation.get("title") %>">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="name">Candidate Name</label>
+    <div class="controls">
+      <input type="text" id="name" text="<%= evaluation.get("user") %>" placeholder="John Doe">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="candidate_email">Candidate Email</label>
+    <div class="controls">
+      <input type="text" id="candidate_email" text="<%= evaluation.get("user_email") %>" placeholder="john@abc.com">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="rating">Rating</label>
+    <div class="controls">
+      <input type="text" id="rating" placeholder="A number from 1 to 10">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="comments">Comments</label>
+    <div class="controls">
+      <input type="text" id="comments" placeholder="Write any comments here that you felt made the candidate stand out.">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="recommended">Recommend this candidate for this job?</label>
+    <div class="controls">
+      <input type="text" id="recommended" placeholder="Yes/No">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls submit_box">
+      <button type="submit" id="create_evaluation" class="btn">Submit</button>
+      <div class="spinner"><img src="/assets/spinner.gif"></div>
+    </div>
+  </div>
+</form>

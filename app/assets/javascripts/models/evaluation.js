@@ -5,8 +5,10 @@ models.Evaluation = Backbone.Model.extend({
 		if (this.isNew() && this.get("_id") !== undefined) {
 			url = url + '/' + this.get("_id");
 		}
-		else if (this.isNew() && this.get("_post_id") !== undefined) {
-			url = "posts/" + this.get("_post_id") + "/evaluations";
+		else if (this.get("_post_id") !== undefined) {
+			if (this.get("_id") !== undefined) {
+				url = "/posts/" + this.get("_post_id") + "/evaluations/" + this.get("_id");
+			}
 		}
 		
 		return url;
