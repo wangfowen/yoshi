@@ -1,7 +1,7 @@
 <h1><%= post.get("title") %></h1>
 <div>
 	<p><img src="<%= post.get("profile_pic_url") %>"></p>
-	<p>Poster: <a href="/users/<%= post.get("user_id") %>"><%= post.get("user") %></a></p>
+	<p>Poster: <a id="show_user" data-user="<%= post.get("user_id") %>" href="#"><%= post.get("user") %></a></p>
 	<p>Posted on: <%= post.get("created_at") %></p>
 	<p>Category: <%= post.getCategory() %></p>
 	<p>Description: <%= post.get("description") %></p>
