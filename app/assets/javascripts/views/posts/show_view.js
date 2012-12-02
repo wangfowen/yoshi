@@ -31,6 +31,7 @@ views.PostsShowView = Backbone.View.extend({
       application.save({}, {
         success: function() {
           alertify.success("Successfully applied to be an interviewer");
+          //TODO: rerender home
         },
         error: function() {
           alertify.error("Application failed");
