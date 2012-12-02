@@ -12,8 +12,10 @@ class Booking < ActiveRecord::Base
   end
   
   def get_interview_link
+    puts self.inspect
+    puts self.post_id.to_s
+    puts "http://localhost:3000/video?post_id=" + self.post_id.to_s
     "http://localhost:3000/video?post_id=" + self.post_id.to_s
-    # get stuff from yev
   end
   
 end
