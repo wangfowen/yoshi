@@ -22,6 +22,6 @@
 		<% }) %>
 	<% } else { %>
 		<p><a href="/users/<%= post.get("application_status") %>">View Accepted Applicant</a></p>
-		<p>View Evaluation</p>
+		<p><a data-application="<%= post.get("id") %>" class="show_evaluation">View Evaluation</a></p>
 	<% } %>
 <% } %>

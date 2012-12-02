@@ -9,6 +9,9 @@ models.Evaluation = Backbone.Model.extend({
 			if (this.get("_id") !== undefined) {
 				url = "/posts/" + this.get("_post_id") + "/evaluations/" + this.get("_id");
 			}
+			else {
+				url = "/posts/" + this.get("_post_id") + "/evaluations";
+			}
 		}
 		
 		return url;
