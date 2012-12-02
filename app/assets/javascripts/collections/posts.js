@@ -1,5 +1,14 @@
 collections.Posts = Backbone.Collection.extend({
-	url: '/posts',
+	initialize: function(options) {
+		this.current = options.current;
+	},
+	url: function() {
+		if (this.current == true) {
+			return '/my_posts';
+		} else {
+			return '/posts';
+		}
+	},
 	getCategory: function(category) {
 		switch(category) {
 			case 2:

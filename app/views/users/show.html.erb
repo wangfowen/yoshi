@@ -1,0 +1,9 @@
+<div id="show"></div>
+
+<script>
+	post.fetch({
+		success: function() {
+			new views.UsersShowView({el: "#show", model: current_user});
+		}
+	});
+</script>

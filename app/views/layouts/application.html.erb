@@ -41,8 +41,10 @@
 
                     <ul class="nav nav-pills">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/">My Posts</a></li>
+                        <% if signed_in? %>
+                        <li><a href="/my_posts">My Posts</a></li>
                         <li><a href="/">My Interviews</a></li>
+                        <% end %>
                     </ul>
                     <% if signed_in? %>
                     <%= link_to 'Sign out', destroy_user_session_path, method: "delete", class: "pull-right"%></li>
