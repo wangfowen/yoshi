@@ -13,7 +13,7 @@ views.PostsIndexView = Backbone.View.extend({
   	}
   },
   newPost: function(e) {
-    if (true) {
+    if (current_user) {
       window.location.href = "posts/new";
     }
     else {
