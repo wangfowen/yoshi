@@ -33,7 +33,7 @@
 	 
 	function chatStateChangedHandler(event) {
 		$('#chatbox').value = $('#chatbox').value + event.changedValues["chat"] + '\n';
-		alert("asdasd");
+		//alert("asdasd");
 	}
 	
 	function sessionConnectedHandler(event) {
@@ -42,8 +42,9 @@
 
       // Subscribe to streams that were in the session when we connected
       subscribeToStreams(event.streams);
+	  /*
 	  stateManager = session.getStateManager();
-	  stateManager.addEventListener("changed:chat", chatStateChangedHandler);
+	  stateManager.addEventListener("changed:chat", chatStateChangedHandler);*/
     }
 
     function streamCreatedHandler(event) {
@@ -68,7 +69,7 @@
 		
       }
     }
-	
+	/*
 	jQuery('#inputText').keydown(function (event) {
 		var keypressed = event.keyCode || event.which;
 		if (keypressed == 13) {
@@ -82,7 +83,7 @@
 			stateManager.set("chat", $('#inputText').value);
 			$('#inputText').value = '';
 	}
-	
+	*/
   </script>
 
 </head>
