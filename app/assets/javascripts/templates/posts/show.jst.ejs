@@ -10,5 +10,9 @@
 </div>
 
 <% if (current_user.get("id") !== post.get("user_id")) { %>
-<button class="btn" id="apply">Apply for Interview</button>
+	<% if (!post.get("has_application")) { %>
+		<button class="btn" id="apply">Apply for Interview</button>
+	<% } else { %>
+		<p>Pending</p>
+	<% } %>
 <% } %>

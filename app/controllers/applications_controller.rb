@@ -1,4 +1,16 @@
 class ApplicationsController < ApplicationController
+
+  # GET /my_interviews
+  # GET /my_interviews.json
+  def my_interviews
+    @applications = Application.find_all_by_applicant_id(current_user.id)
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => ApplicationsPresenter.from_array(@applications) }
+    end
+  end
+
   # GET /applications
   # GET /applications.json
   def index
