@@ -15,10 +15,10 @@ class User < ActiveRecord::Base
   has_many :applications
   has_many :evaluations, foreign_key: "evaluator_id"
 
-  def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
-	  user = User.where(:provider => auth.provider, :uid => auth.uid).first
-	  puts auth.to_json
-	  unless user
+  	def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
+	  	user = User.where(:provider => auth.provider, :uid => auth.uid).first
+	  	puts auth.to_json
+	  	unless user
 	    user = User.create(name:auth.info.name,
 	                         provider:auth.provider,
 	                         uid:auth.uid,
@@ -31,5 +31,34 @@ class User < ActiveRecord::Base
 	                         )
 	  end
 	  user
+	end
+
+	def posts_count
+		count = 0
+
+		Post.find_all_by_user_id(self.id).each do |p|
+			count += Application.find_all_by_post_id_and_booked(p.id, false).try(:count) || 0
+			count += Evaluation.find_all_by_post_id_and_completed(p.id, true).try(:count) || 0
+		end
+
+		if count == 0
+			""
+		else
+			"[" + count.to_s + "]"
+		end
+	end
+
+	def interviews_count
+		count = 0
+
+		Application.find_all_by_applicant_id(self.id).each do |a|
+			count += Booking.find_all_by_application_id_and_conducted(a.id, false).try(:count) || 0
+		end
+
+		if count == 0
+			""
+		else
+			"[" + count.to_s + "]"
+		end
 	end
 end

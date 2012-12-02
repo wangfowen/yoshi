@@ -11,7 +11,7 @@ class ApplicationsPresenter
 
   def as_json(*)
     @post = Post.find(@application.post_id)
-    eval_completed = Evaluation.find_by_post_id(@post.id).completed
+    eval_completed = Evaluation.find_by_post_id(@post.id).try(:completed) || false
 
     @application.attributes.merge({"title" => @post.title, "created_at" => @post.created_at.nil? ? nil : @post.created_at.strftime("%D"),
       "name" => User.find(@post.user_id).name, "category" => @post.category, "description" => @post.description,

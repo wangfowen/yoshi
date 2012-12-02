@@ -38,8 +38,8 @@
             <ul class="menu">
                 <li><a class="<%= 'active' if current_page?(root_path) %>" href="/">Unfilled Posts</a></li>
                 <% if signed_in? %>
-                <li><a class="<%= 'active' if current_page?(my_posts_path) %>" href="/my_posts">My Posts</a></li>
-                <li><a class="<%= 'active' if current_page?(my_interviews_path) %>" href="/my_interviews">My Interviews</a></li>
+                <li><a class="<%= 'active' if current_page?(my_posts_path) %>" href="/my_posts">My Posts <span class="red"><%= current_user.posts_count %></span></a></li>
+                <li><a class="<%= 'active' if current_page?(my_interviews_path) %>" href="/my_interviews">My Interviews <span class="red"><%= current_user.interviews_count %></span></a></li>
                 <%= link_to 'Sign out', destroy_user_session_path, method: "delete" %></li>
                 <% else %>
                 <%= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin) %>
@@ -57,13 +57,6 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            var _gaq=[['_setAccount','UA-XX'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
     </body>
 </html>
 
