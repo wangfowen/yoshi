@@ -3,6 +3,7 @@
 
 <% posts.each(function(post) { %>
 <button class="post" data-toggle="modal" href="#show_content" data-post="<%= post.get("id") %>">
+  <p><img src="<%= post.get("profile_pic_url") %>"></p>
 	<p>Posted on: <%= post.get("created_at") %></p>
 	<p>Title: <%= post.get("title") %></p>
 	<p>Category: <%= posts.getCategory(post.get("category")) %></p>
