@@ -98,6 +98,16 @@
   </script>
 
   <div>
+  	<h1>Interview Room</h1>
+  	<div class="container">
+  		<div class="row">
+	  	<%= image_tag(@post.user.profile_pic_url) %>
+	  	<p class="title"><strong>Title: </strong><%= @post.title %></p>
+	  	<p class="category"><strong>Name: </strong><%= @post.candidate_name %></p>
+	  	<p class="description"><strong>Description: </strong><%= @post.description %></p>
+
+	    </div>
+	</div>
 	  <div> <!-- horizonal align -->
 		  <div> <!-- vertical align -->
 			  <!-- other video -->

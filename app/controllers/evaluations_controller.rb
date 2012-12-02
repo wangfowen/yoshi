@@ -13,6 +13,10 @@ class EvaluationsController < ApplicationController
   end
 
   def video
+    if params[:post_id]
+      @post = Post.find(params[:post_id])
+      
+    end
   end
 
   # GET /evaluations/1

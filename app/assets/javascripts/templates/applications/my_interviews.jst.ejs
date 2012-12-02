@@ -16,5 +16,8 @@
 			<div><strong>Deadline</strong>: <%= application.get("deadline") %></div>
 		</div>
 		<div style="float: right"><img src="assets/<%= application.get("booked") ? "Approved_TAG.jpg" : "Pending_TAG.jpg" %>"></div>
+		<% if (application.get("conducted") != undefined) {  %>
+		<p>Submit Evaluation</p>
+		<% { %>
 	</div>
 <% }) %>
