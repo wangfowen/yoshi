@@ -40,9 +40,9 @@
                     <a class="brand" href="/">Yoshi</a>
 
                     <ul class="nav nav-pills">
-                        <li><a href="/">Home</a></li>
+                        <li class="<%= 'active' if current_page?(root_path) %>"><a href="/">Home</a></li>
                         <% if signed_in? %>
-                        <li><a href="/my_posts">My Posts</a></li>
+                        <li class="<%= 'active' if current_page?(my_posts_path) %>"><a href="/my_posts">My Posts</a></li>
                         <li><a href="/">My Interviews</a></li>
                         <% end %>
                     </ul>
