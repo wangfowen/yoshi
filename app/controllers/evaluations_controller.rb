@@ -55,6 +55,7 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(params[:evaluation])
+    @evaluation.completed = true
 
     respond_to do |format|
       if @evaluation.save
