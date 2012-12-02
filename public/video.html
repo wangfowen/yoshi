@@ -5,7 +5,7 @@
 
   <script type="text/javascript">
     var apiKey = '21886882';
-    var sessionId = '2_MX4yMTg4Njg4Mn4xMjcuMC4wLjF-U2F0IERlYyAwMSAyMDoxOTozMSBQU1QgMjAxMn4wLjIyNDcxMDQ2fg';
+    var sessionId = '1_MX4yMTg4Njg4Mn4xMjcuMC4wLjF-U2F0IERlYyAwMSAyMToyMzo0NyBQU1QgMjAxMn4wLjAxMDQ1NzI3N34';
     var token = 'T1==cGFydG5lcl9pZD0yMTg4Njg4MiZzaWc9ZGJiNGQ2NTMzNjliMWJiOWM1MTBlZDBkNTUwMDkwNmEyYzM4MDdkZDpzZXNzaW9uX2lkPTJfTVg0eU1UZzROamc0TW40eE1qY3VNQzR3TGpGLVUyRjBJRVJsWXlBd01TQXlNRG94T1Rvek1TQlFVMVFnTWpBeE1uNHdMakl5TkRjeE1EUTJmZyZjcmVhdGVfdGltZT0xMzU0NDIxOTk1JmV4cGlyZV90aW1lPTEzNTcwMTM5OTUmcm9sZT1wdWJsaXNoZXImY29ubmVjdGlvbl9kYXRhPSZub25jZT0yNzE4MzE=';
 
     TB.setLogLevel(TB.DEBUG); // Set this for helpful debugging messages in console
@@ -14,16 +14,16 @@
      session.addEventListener('sessionConnected', sessionConnectedHandler);			
      session.connect(apiKey, token);
 
-     function sessionConnectedHandler(event) {
-            var publishProps = {height:240, width:320};
+    function sessionConnectedHandler(event) {
+			var publishProps = {height:240, width:320};
 			publisher = TB.initPublisher(apiKey, 'myPublisherDiv', publishProps);
 			// Send my stream to the session
-  subscribeToStreams(event.streams);
+			subscribeToStreams(event.streams);
     }
 
     function streamCreatedHandler(event) {
-      // Subscribe to any new streams that are created
-      subscribeToStreams(event.streams);
+			// Subscribe to any new streams that are created
+			subscribeToStreams(event.streams);
     }
 
     function subscribeToStreams(streams) {

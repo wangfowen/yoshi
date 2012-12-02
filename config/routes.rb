@@ -1,4 +1,6 @@
 Yoshi::Application.routes.draw do
+  resources :evaluations
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" } do
     #get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
     get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
@@ -6,6 +8,7 @@ Yoshi::Application.routes.draw do
 
   resources :posts
   resources :users
+  resources :evaluations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
