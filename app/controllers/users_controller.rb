@@ -1,15 +1,4 @@
 class UsersController < ApplicationController
-  # GET /view_posts
-  # GET /view_posts.json
-  # def view_posts
-  #   @posts = Post.find_all_by_user_id(current_user)
-
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render :json => PostsPresenter.from_array(@posts) }
-  #   end
-  # end
-
   def show
     @user = User.find(params[:id])
 

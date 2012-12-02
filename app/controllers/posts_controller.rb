@@ -1,4 +1,15 @@
 class PostsController < ApplicationController
+  # GET /my_posts
+  # GET /my_posts.json
+  def my_posts
+    @posts = Post.find_all_by_user_id(current_user.id)
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => PostsPresenter.from_array(@posts) }
+    end
+  end
+
   # GET /posts
   # GET /posts.json
   def index

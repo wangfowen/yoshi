@@ -36,7 +36,7 @@ views.PostsNewView = Backbone.View.extend({
 
       this.model.save({}, {
         success: function() {
-          window.location = "/?success=1";
+          window.location = "/my_posts?success=1";
         },
         error: function() {
           alertify.error("An error occurred when saving");
