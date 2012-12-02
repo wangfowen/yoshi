@@ -53,6 +53,23 @@ a:hover {
 	line-height: 12px;
 }
 
+.interviewee {
+	margin-top: 15px;
+}
+
+#apply {
+	background: url(Apply_Button.jpg);
+	width: 137px;
+	height: 42px;
+	outline: none;
+	border: none;
+	float: right;
+}
+
+.poster {
+	padding-top: 10px;
+}
+
 .deadline {
 	line-height: 12px;
 }
@@ -77,7 +94,8 @@ a:hover {
 }
 
 .description {
-	margin: 15px 0;
+	margin-top: 5px;
+	margin-bottom: 15px;
 }
 
 .right {
@@ -87,6 +105,11 @@ a:hover {
 
 #show_content {
 	border-radius: 20px;
+	overflow: hidden;
+}
+
+#content {
+	overflow: hidden;
 }
 
 body, html {

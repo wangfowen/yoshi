@@ -3,8 +3,8 @@
 <button class="post" data-toggle="modal" href="#show_content" data-post="<%= post.get("id") %>">
   <div class="container">
   <div class="row">
-  <div class="span2"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
-  <div class="span10">
+  <div class="span1"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
+  <div class="span11">
   	<p class="title"><%= post.get("title") %></p>
   	<p class="category">Category: <%= posts.getCategory(post.get("category")) %></p>
   	<p class="deadline">Deadline: <%= post.get("deadline") %></p>

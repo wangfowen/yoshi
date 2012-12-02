@@ -1,9 +1,9 @@
 <div class="container">
 <div class="row">
-	<div class="span2"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
-	<div class="span10">
+	<div class="span1"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
+	<div class="span11">
 		<div class="title"><%= post.get("title") %> <span class="right"><%= post.get("created_at") %></span></div>
-		<p><strong>Poster</strong>: <a id="show_user" data-user="<%= post.get("user_id") %>" href="#"><%= post.get("user") %></a></p>
+		<p class="poster"><strong>Poster</strong>: <a id="show_user" data-user="<%= post.get("user_id") %>" href="#"><%= post.get("user") %></a></p>
 		<p><strong>Category</strong>: <%= post.getCategory() %></p>
 	</div>
 </div>
@@ -14,11 +14,13 @@
 </div>
 
 <div class="modal_footer">
-<p><strong>Interviewee</strong>: <%= post.get("candidate_name") %></p>
+<div class="span1"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
+<div class="span11">
+<p class="interviewee"><strong>Interviewee</strong>: <%= post.get("candidate_name") %></p>
 <p><strong>Deadline</strong>: <%= post.get("deadline") %></p>
 <% if (!current_user || (current_user.get("id") !== post.get("user_id"))) { %>
 	<% if (post.get("application_status") === -1) { %>
-		<button class="btn" id="apply">Apply for Interview</button>
+		<button class="btn" id="apply"></button>
 	<% } %>
 <% } else { %>
 	<% if (post.get("application_status") === false) { %>

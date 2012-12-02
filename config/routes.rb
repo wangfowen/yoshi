@@ -68,6 +68,7 @@ Yoshi::Application.routes.draw do
   root :to => 'posts#index'
   match 'my_posts' => 'posts#my_posts'
   match 'my_interviews' => 'applications#my_interviews'
+  match 'video' => 'evaluations#video'
 
   # See how all your routes lay out with "rake routes"
 

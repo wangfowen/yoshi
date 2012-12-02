@@ -12,6 +12,9 @@ class EvaluationsController < ApplicationController
     end
   end
 
+  def video
+  end
+
   # GET /evaluations/1
   # GET /evaluations/1.json
   def show
