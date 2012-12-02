@@ -41,6 +41,7 @@ class ApplicationsController < ApplicationController
   # POST /applications.json
   def create
     @application = Application.new(params[:application])
+    @application.applicant_id = current_user.id
 
     respond_to do |format|
       if @application.save
