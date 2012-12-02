@@ -1,5 +1,5 @@
 class Evaluation < ActiveRecord::Base
-	attr_accessible :rating, :comments, :recommended
+	attr_accessible :post_id, :rating, :comments, :recommended
 	attr_accessor :completed, :read
 	belongs_to :post
 	belongs_to :evaluator, class_name: "User"

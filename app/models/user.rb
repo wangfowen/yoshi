@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   					:name, :headline, :industry, :profile_pic_url, :linkedin_url
   # attr_accessible :title, :body
 
-  has_one :evaluation
+  has_many :bookings
+  has_many :applications
+  has_many :evaluations, foreign_key: "evaluator_id"
 
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
 	  user = User.where(:provider => auth.provider, :uid => auth.uid).first

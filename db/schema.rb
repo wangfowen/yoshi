@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20121202081455) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "connections"
     t.string   "name"
     t.string   "industry"
     t.string   "headline"

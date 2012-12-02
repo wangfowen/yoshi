@@ -1,5 +1,5 @@
 class Booking < ActiveRecord::Base
-  attr_accessible :conducted, :link
+  attr_accessible :post_id, :conducted, :link
   belongs_to :application
   belongs_to :expert, class_name: "User"
   

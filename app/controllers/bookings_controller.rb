@@ -40,10 +40,15 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
+    @user = current_user
+
     @booking = Booking.new(params[:booking])
 
     respond_to do |format|
       if @booking.save
+
+        #create a incomplete evaluation when we book an interview
+        @user.evaluations.create!(post_id: params[:post_id])
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render json: @booking, status: :created, location: @booking }
       else
