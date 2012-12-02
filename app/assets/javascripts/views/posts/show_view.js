@@ -19,7 +19,7 @@ views.PostsShowView = Backbone.View.extend({
   render: function(applications) {
   	this.$el.html(this.template({post: this.model, applications: applications}));
   }, 
-  apply: function() {
+  apply: _.once(function() {
     if (current_user) {
       var application = new models.Application();
 
@@ -42,7 +42,7 @@ views.PostsShowView = Backbone.View.extend({
     else {
       alertify.error("Please sign in before applying to be an interviewer");
     }
-  },
+  }),
   showUser: function(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -54,7 +54,7 @@ views.PostsShowView = Backbone.View.extend({
       }
     });
   },
-  acceptApplicant: function(e) {
+  acceptApplicant: _.once(function(e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -72,7 +72,7 @@ views.PostsShowView = Backbone.View.extend({
         alertify.success("Successfully accepted applicant");
       }
     });
-  },
+  }),
   showEvaluation: function(e) {
     var id = $(e.target).data('application')
     evaluation = new models.Evaluation({ _post_id: id});

@@ -1,6 +1,7 @@
 <h1>New Evaluation</h1>
 
 <form class="form-horizontal">
+<!--
   <div class="control-group">
     <label class="control-label" for="post-title">Post Title</label>
     <div class="controls">
@@ -19,10 +20,22 @@
       <input type="text" id="candidate_email" text="<%= evaluation.get("user_email") %>" placeholder="john@abc.com">
     </div>
   </div>
+  -->
   <div class="control-group">
     <label class="control-label" for="rating">Rating</label>
     <div class="controls">
-      <input type="text" id="rating" placeholder="A number from 1 to 10">
+	  <select id="rating" >
+		<option value="1">01</option>
+		<option value="2">02</option>
+		<option value="3">03</option>
+		<option value="4">04</option>
+		<option value="5">05</option>
+		<option value="6">06</option>
+		<option value="7">07</option>
+		<option value="8">08</option>
+		<option value="9">09</option>
+		<option value="10">10</option>
+	  </select>
     </div>
   </div>
   <div class="control-group">
@@ -34,7 +47,10 @@
   <div class="control-group">
     <label class="control-label" for="recommended">Recommend this candidate for this job?</label>
     <div class="controls">
-      <input type="text" id="recommended" placeholder="Yes/No">
+	  <select id="recommended" >
+		<option value="no">No</option>
+		<option value="yes">Yes</option>
+	  </select>
     </div>
   </div>
   <div class="control-group">

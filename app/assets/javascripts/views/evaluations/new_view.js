@@ -11,7 +11,7 @@ views.EvaluationsNewView = Backbone.View.extend({
   	this.$el.html(this.template());
 
   },
-  createEvaluation: function(e) {
+  createEvaluation: _.once(function(e) {
     if (current_user) {
       e.stopPropagation();
       e.preventDefault();
@@ -43,5 +43,5 @@ views.EvaluationsNewView = Backbone.View.extend({
     else {
       alertify.error("Please sign in first before posting");
     } 
-  }
+  })
 });
