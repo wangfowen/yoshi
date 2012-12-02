@@ -12,7 +12,7 @@ class Booking < ActiveRecord::Base
   end
   
   def get_interview_link
-    "http://google.com"
+    "http://localhost:3000/video"
     # get stuff from yev
   end
   

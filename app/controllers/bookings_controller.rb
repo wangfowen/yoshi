@@ -44,6 +44,7 @@ class BookingsController < ApplicationController
 
     @booking = Booking.new(params[:booking])
     @booking.link = @booking.get_interview_link
+    @booking.post_id = Application.find(@booking.application_id).post_id
 
     respond_to do |format|
       if @booking.save
