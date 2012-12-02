@@ -18,5 +18,24 @@ views.PostsNewView = Backbone.View.extend({
   	var $spinner = $('.spinner');
 
   	$spinner.css("display", "inline-block");
+
+  	this.model.set({
+      post: {
+    		title: $('#title').val(),
+    		category: $('#category').val(),
+    		description: $('#description').val(),
+    		candidate_name: $('#candidate_name').val(),
+    		deadline: $('#deadline').val()
+      }
+  	});
+
+  	this.model.save({}, {
+  		success: function() {
+  			window.location = "/";
+  		},
+  		error: function() {
+  			console.log("oh no");
+  		}
+  	});
   }
 });

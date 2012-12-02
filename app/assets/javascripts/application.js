@@ -21,3 +21,5 @@
 //= require_tree .
 
 views = {};
+models = {};
+collections = {};

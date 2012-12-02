@@ -1,5 +1,6 @@
 <div id="new"></div>
 
 <script>
-	new views.PostsNewView({el: "#new"});
+	var post = new models.Post();
+	new views.PostsNewView({el: "#new", model: post});
 </script>
