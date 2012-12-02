@@ -11,6 +11,7 @@
 	<p>Candidate Name: <%= post.get("candidate_name") %></p>
 	<p>Deadline: <%= post.get("deadline") %></p>
 </button>
+<button type="button" id="see-evaluation" data-toggle="modal" href="#show_content" data-post="<%= post.get("id") %>">See Evaluation</button>
 <% }) %>
 
 <div id="show_content" class="modal hide fade">

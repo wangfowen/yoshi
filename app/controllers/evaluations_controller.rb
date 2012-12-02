@@ -2,11 +2,13 @@ class EvaluationsController < ApplicationController
   # GET /evaluations
   # GET /evaluations.json
   def index
-    @evaluations = Evaluation.all
+
+    @evaluations = Evaluation.find_by_post_id(params[:post_id]) if params[:post_id]
+    @evaluations = Evaluation.all unless params[:post_id]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @evaluations }
+      format.json { render json: EvaluationsPresenter.new(@evaluations) }
     end
   end
 
@@ -17,7 +19,7 @@ class EvaluationsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @evaluation }
+      format.json { render json: EvaluationsPresenter.new(@evaluation) }
     end
   end
 

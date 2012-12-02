@@ -17,7 +17,7 @@ views.PostsIndexView = Backbone.View.extend({
     else {
       e.stopPropagation();
       e.preventDefault();
-      alertify.error("Please Sign in first before posting a new interview");
+      alertify.error("Please sign in first before posting a new interview");
     }
   },
   showPost: function(e) {

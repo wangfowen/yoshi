@@ -1,0 +1,9 @@
+<h1><%= evaluation.get("title") %></h1>
+<div>
+	<p><img src="<%= evaluation.get("profile_pic_url") %>"></p>
+	<p>Evaluator: <a id="show_user" data-user="<%= evaluation.get("user_id") %>" href="#"><%= evaluation.get("user") %></a></p>
+	<p>Evaluated on: <%= evaluation.get("created_at") %></p>
+	<p>Rating: <%= evaluation.get("rating") %></p>
+	<p>Commends: <%= evaluation.get("commends") %></p>
+	<p>Recommended: <%= evaluation.get("recommends") %></p>
+</div>

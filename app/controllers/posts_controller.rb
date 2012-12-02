@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.unfilled(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
