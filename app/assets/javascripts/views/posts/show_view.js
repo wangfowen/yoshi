@@ -10,7 +10,7 @@ views.PostsShowView = Backbone.View.extend({
   	this.$el.html(this.template({post: this.model}));
   }, 
   apply: function() {
-    if (true) {
+    if (current_user) {
   	 alertify.success("Successfully applied to be an interviewer");
     }
     else {

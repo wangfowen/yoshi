@@ -14,7 +14,7 @@ views.PostsNewView = Backbone.View.extend({
     });  
   },
   createPost: function(e) {
-    if (true) {
+    if (current_user) {
       e.stopPropagation();
       e.preventDefault();
 
