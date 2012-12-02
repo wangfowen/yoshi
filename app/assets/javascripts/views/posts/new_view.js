@@ -9,7 +9,10 @@ views.PostsNewView = Backbone.View.extend({
   render: function() {
   	this.$el.html(this.template());
 
-  	$('#deadline').datepicker();
+  	$('#deadline').datepicker().on('changeDate', function(e){
+      $('.datepicker').hide();
+    });
+  
   },
   createPost: function(e) {
   	e.stopPropagation();
@@ -18,5 +21,25 @@ views.PostsNewView = Backbone.View.extend({
   	var $spinner = $('.spinner');
 
   	$spinner.css("display", "inline-block");
+
+  	this.model.set({
+      post: {
+    		title: $('#title').val(),
+    		category: $('#category').val(),
+    		description: $('#description').val(),
+    		candidate_name: $('#candidate_name').val(),
+        candidate_email: $('#candidate_email').val(),
+    		deadline: $('#deadline').val()
+      }
+  	});
+
+  	this.model.save({}, {
+  		success: function() {
+  			window.location = "/?success=1";
+  		},
+  		error: function() {
+  			alertify.error("An error occurred when saving");
+  		}
+  	});
   }
 });

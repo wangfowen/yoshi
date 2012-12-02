@@ -1,1 +1,11 @@
 <h1>Show</h1>
+<div class="row">
+	<p>Posted: <%= post.get("created_at") %></p>
+	<p>Title: <%= post.get("title") %></p>
+	<p>Category: <%= post.getCategory() %></p>
+	<p>Description: <%= post.get("description") %></p>
+	<p>Candidate Name: <%= post.get("candidate_name") %></p>
+	<p>Deadline: <%= post.get("deadline") %></p>
+</div>
+
+<button class="btn" id="apply">Apply for Interview</button>

@@ -13,6 +13,7 @@
  *= require bootstrap.min
  *= require bootstrap-responsive.min
  *= require datepicker
+ *= require alertify
 */
 
 .spinner {
@@ -24,4 +25,12 @@
 
 .submit_box {
 	position: relative;
+}
+
+a:hover {
+	text-decoration: none !important;
+}
+
+.post {
+	border: 1px solid #000;
 }

@@ -17,7 +17,10 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require alertify
+//= require purl
 //= require_self
 //= require_tree .
 
 views = {};
+models = {};
+collections = {};
