@@ -1,4 +1,13 @@
 collections.Posts = Backbone.Collection.extend({
-	model: models.Post,
-	urlRoot: '/posts'
+	url: '/posts',
+	getCategory: function(category) {
+		switch(category) {
+			case 2:
+				return "Business";
+				break;
+			default:
+				return "IT";
+				break;
+		}
+	}
 });

@@ -1,11 +1,22 @@
 models.Post = Backbone.Model.extend({
 	url: function() {
-		var url = this.collection.url(true);
+		var url = '/posts';
 
-		if (!this.isNew()) {
-			url = url + '/' + this.get("postId");
+		if (this.isNew() && this.get("_id") !== undefined) {
+			url = url + '/' + this.get("_id");
 		}
 		
 		return url;
+	},
+
+	getCategory: function() {
+		switch(this.get("category")) {
+			case 2:
+				return "Business";
+				break;
+			default:
+				return "IT";
+				break;
+		}
 	}
 });

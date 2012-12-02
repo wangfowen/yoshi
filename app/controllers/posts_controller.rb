@@ -15,9 +15,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
 
-    puts "$$$$$$$$$$$$$$$$"
-    puts @post.title
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
