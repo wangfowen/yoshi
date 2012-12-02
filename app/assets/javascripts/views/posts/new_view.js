@@ -28,6 +28,7 @@ views.PostsNewView = Backbone.View.extend({
     		category: $('#category').val(),
     		description: $('#description').val(),
     		candidate_name: $('#candidate_name').val(),
+        candidate_email: $('#candidate_email').val(),
     		deadline: $('#deadline').val()
       }
   	});
