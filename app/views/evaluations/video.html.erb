@@ -29,7 +29,7 @@
 	function chatStateChangedHandler(event) {
 		if (event.changedValues["chat"] != null) {
 			$('#chatbox').append(event.changedValues["chat"] + '\n');
-			$('#chatbox').scrollTop($('#chatbox')[0].scrollHeight - $('#chatbox').height());
+			// $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight - $('#chatbox').height());
 		}
 		//alert("asdasd");
 	}
@@ -98,7 +98,7 @@
   </script>
 
   <div>
-  	<h1>Interview Room</h1>
+  	<h1 style="margin-left: -30px">Interview Room</h1>
   	<div class="container">
   		<div class="row">
 	  	<%= image_tag(@post.user.profile_pic_url) %>
@@ -107,23 +107,17 @@
 	  	<p class="description"><strong>Description: </strong><%= @post.description %></p>
 
 	    </div>
+	    <div class="row">
+	    	<div id="other"></div>
+	    	<div id="myPublisherDiv"></div>
+	    </div>
+
+	    <div class="row">
+			<textarea id="chatbox" cols="100" rows="4"></textarea>
+			<div id="inputarea"> <!-- align horizontal -->
+				<input id="inputText" type="text" size="100" />
+				<input id="submitChat" type="submit" value="" />
+			</div>
+	    </div>
 	</div>
-	  <div> <!-- horizonal align -->
-		  <div> <!-- vertical align -->
-			  <!-- other video -->
-			  <div id="other" />
-			  
-			  <!-- chat box -->
-			  <textarea id="chatbox" > </textarea>
-			  
-			  <div id="inputarea"> <!-- align horizontal -->
-				  <input id="inputText" type="text" />
-				  <input id="submitChat" type="submit" value="send" />
-			  </div>
-		  </div>
-		  
-		  <!-- Video Box-->
-		  <div id="myPublisherDiv"></div>
-		
-	  </div>
   </div>

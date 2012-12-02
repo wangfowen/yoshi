@@ -12,7 +12,7 @@ class Booking < ActiveRecord::Base
   end
   
   def get_interview_link
-    "http://localhost:3000/video"
+    "http://localhost:3000/video?post_id=" + self.post_id
     # get stuff from yev
   end
   

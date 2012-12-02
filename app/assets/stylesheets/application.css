@@ -193,3 +193,11 @@ h1 {
 .red {
 	color: #AF2730;
 }
+
+#submitChat {
+	background: url(CHAT_Button.jpg);
+	width: 42px;
+	height: 33px;
+	border: none;
+	outline: none;
+}
