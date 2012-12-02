@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>OpenTok Getting Started</title>
+  <script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>
+
+  <script type="text/javascript">
+    var apiKey = '21886882';
+    var sessionId = '2_MX4yMTg4Njg4Mn4xMjcuMC4wLjF-U2F0IERlYyAwMSAyMDoxOTozMSBQU1QgMjAxMn4wLjIyNDcxMDQ2fg';
+    var token = 'T1==cGFydG5lcl9pZD0yMTg4Njg4MiZzaWc9ZGJiNGQ2NTMzNjliMWJiOWM1MTBlZDBkNTUwMDkwNmEyYzM4MDdkZDpzZXNzaW9uX2lkPTJfTVg0eU1UZzROamc0TW40eE1qY3VNQzR3TGpGLVUyRjBJRVJsWXlBd01TQXlNRG94T1Rvek1TQlFVMVFnTWpBeE1uNHdMakl5TkRjeE1EUTJmZyZjcmVhdGVfdGltZT0xMzU0NDIxOTk1JmV4cGlyZV90aW1lPTEzNTcwMTM5OTUmcm9sZT1wdWJsaXNoZXImY29ubmVjdGlvbl9kYXRhPSZub25jZT0yNzE4MzE=';
+
+    TB.setLogLevel(TB.DEBUG); // Set this for helpful debugging messages in console
+
+     var session = TB.initSession(sessionId);			
+     session.addEventListener('sessionConnected', sessionConnectedHandler);			
+     session.connect(apiKey, token);
+
+     function sessionConnectedHandler(event) {
+       alert('Hello world. I am connected to OpenTok :).');
+     }
+  </script>
+
+  </head>
+
+<body>
+</body>
+</html>

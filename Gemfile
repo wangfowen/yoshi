@@ -10,6 +10,8 @@ gem 'omniauth-linkedin'
 
 gem 'ejs'
 
+gem 'opentok'
+
 group :development do
   gem 'sqlite3'
 end
