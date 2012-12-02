@@ -2,13 +2,21 @@ views.PostsShowView = Backbone.View.extend({
   template: JST["templates/posts/show"],
   events: {
   	'click #apply': 'apply',
-    'click #show_user': 'showUser'
+    'click #show_user': 'showUser',
+    'click .accept': 'acceptApplicant'
   },
   initialize: function() {
-	this.render();  	
+    var that = this,
+        applications = new collections.Applications({postId: this.model.get("id")});
+
+    applications.fetch({
+      success: function() {
+        that.render(applications);
+      }
+    })
   },
-  render: function() {
-  	this.$el.html(this.template({post: this.model}));
+  render: function(applications) {
+  	this.$el.html(this.template({post: this.model, applications: applications}));
   }, 
   apply: function() {
     if (current_user) {
@@ -41,6 +49,25 @@ views.PostsShowView = Backbone.View.extend({
     user.fetch({
       success: function() {
         new views.UsersShowView({el: "#content", model: user});
+      }
+    });
+  },
+  acceptApplicant: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var id = $(e.target).data('application'),
+        booking = new models.Booking();
+
+    booking.set({
+      booking: {
+        application_id: id
+      }
+    });
+
+    booking.save({}, {
+      success: function() {
+        alertify.success("Successfully accepted applicant");
       }
     });
   }

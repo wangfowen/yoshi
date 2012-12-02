@@ -13,10 +13,12 @@ class PostsPresenter
     user = User.find(@post.user_id)
     created_at = @post.created_at.nil? ? nil : @post.created_at.strftime("%D")
     deadline = @post.deadline.nil? ? nil : @post.deadline.strftime("%D")
-    has_application = Application.find_by_post_id(@post.id).nil? ? false : true
+    
+    application = Application.find_by_post_id(@post.id)
+    application_status = application.nil? ? -1 : application.booked? ? application.applicant_id : false
     
     @post.attributes.except("created_at", "deadline").merge("created_at" => created_at, 
       "deadline" => deadline, "user" => user.name, "user_id" => user.id, 
-      "profile_pic_url" => user.profile_pic_url, "has_application" => has_application)
+      "profile_pic_url" => user.profile_pic_url, "application_status" => application_status)
   end
 end
