@@ -1,9 +1,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
   <title>OpenTok Getting Started</title>
+  
+  <!-- Video -->
   <script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>
 
+  <!-- JQuery -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+  
+  <style>
+		#chatbox {
+			overflow:auto; 
+		}
+  </style>
+  
   <script type="text/javascript">
+  
+    //video init
     var apiKey = '21886882';
 	var sessionId = '1_MX4yMTg4Njg4Mn4xMjcuMC4wLjF-U2F0IERlYyAwMSAyMTozODo0OCBQU1QgMjAxMn4wLjAzMjQ0NjI2NX4';
     var token = 'T1==cGFydG5lcl9pZD0yMTg4Njg4MiZzaWc9NzllZDI5NTY0NDYyODBhZGMzMjEyYjcxMDQ5NmQ1YjM4YmQ2N2EwZjpzZXNzaW9uX2lkPTFfTVg0eU1UZzROamc0TW40eE1qY3VNQzR3TGpGLVUyRjBJRVJsWXlBd01TQXlNVG96T0RvME9DQlFVMVFnTWpBeE1uNHdMakF6TWpRME5qSTJOWDQmY3JlYXRlX3RpbWU9MTM1NDQyNjc0MiZleHBpcmVfdGltZT0xMzU3MDE4NzQyJnJvbGU9cHVibGlzaGVyJmNvbm5lY3Rpb25fZGF0YT0mbm9uY2U9MjQ3Mzg3';
@@ -11,16 +24,27 @@
     TB.setLogLevel(TB.DEBUG); // Set this for helpful debugging messages in console
 
      var session = TB.initSession(sessionId);			
-    session.addEventListener('sessionConnected', sessionConnectedHandler);
-    session.addEventListener('streamCreated', streamCreatedHandler);
+     session.addEventListener('sessionConnected', sessionConnectedHandler);
+     session.addEventListener('streamCreated', streamCreatedHandler);
      session.connect(apiKey, token);
-    
+	 
+	 var stateManager;
+	 
+	 
+	function chatStateChangedHandler(event) {
+		$('#chatbox').value = $('#chatbox').value + event.changedValues["chat"] + '\n';
+		//alert("asdasd");
+	}
+	
 	function sessionConnectedHandler(event) {
       publisher = TB.initPublisher(apiKey, 'myPublisherDiv');
       session.publish(publisher);
 
       // Subscribe to streams that were in the session when we connected
       subscribeToStreams(event.streams);
+	  /*
+	  stateManager = session.getStateManager();
+	  stateManager.addEventListener("changed:chat", chatStateChangedHandler);*/
     }
 
     function streamCreatedHandler(event) {
@@ -42,13 +66,43 @@
 
         // Subscribe to the stream
         session.subscribe(streams[i], div.id);
+		
       }
     }
+	/*
+	jQuery('#inputText').keydown(function (event) {
+		var keypressed = event.keyCode || event.which;
+		if (keypressed == 13) {
+			sendMsg();
+		}
+	})
+	
+	jQuery('#submitChat').submit(sendMsg);
+	
+	function sendMsg() {
+			stateManager.set("chat", $('#inputText').value);
+			$('#inputText').value = '';
+	}
+	*/
   </script>
 
 </head>
 
 <body>
-  <div id="myPublisherDiv"></div>
+  <div>
+	  <div>
+		  <!-- Video Box-->
+		  <div id="myPublisherDiv"></div>
+		  <!-- chat box -->
+		  <textarea id="chatbox" > </textarea>
+		  
+		  <div id="inputarea">
+			  <input id="inputText" type="text" />
+			  <input id="submitChat" type="submit" value="send" />
+		  </div>
+	  </div>
+	  <div id="empty"/>
+	  <div id="avatar"/>
+  </div>
 </body>
 </html>
