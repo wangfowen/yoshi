@@ -9,10 +9,14 @@
 	<p>Deadline: <%= post.get("deadline") %></p>
 </div>
 
-<% if (current_user.get("id") !== post.get("user_id")) { %>
-	<% if (!post.get("has_application")) { %>
+<% if (!post.get("has_application")) { %>
+	<% if (current_user.get("id") !== post.get("user_id")) { %>
 		<button class="btn" id="apply">Apply for Interview</button>
-	<% } else { %>
-		<p>Pending</p>
 	<% } %>
+<% } else { %>
+	<h3>Applicants</h3>
+	<% applications.each(function(application) { %>
+	  <p><a href="/users/<%= application.get("applicant_id") %>">View Applicant</a></p>
+	  <p><a data-application="<%= application.get("id") %>" class="accept">Accept Applicant</a></p>
+	<% }) %>
 <% } %>

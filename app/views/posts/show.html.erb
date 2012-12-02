@@ -2,6 +2,7 @@
 
 <script>
 	var post = new models.Post({_id: <%= @post.id %>});
+
 	post.fetch({
 		success: function() {
 			new views.PostsShowView({el: "#show", model: post});
