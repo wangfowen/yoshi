@@ -12,7 +12,22 @@ views.PostsShowView = Backbone.View.extend({
   }, 
   apply: function() {
     if (current_user) {
-  	 alertify.success("Successfully applied to be an interviewer");
+      var application = new models.Application();
+
+      application.set({
+        application: {
+          post_id: this.model.get("id")
+        }
+      });
+
+      application.save({}, {
+        success: function() {
+          alertify.success("Successfully applied to be an interviewer");
+        },
+        error: function() {
+          alertify.error("Application failed");
+        }
+      });
     }
     else {
       alertify.error("Please sign in before applying to be an interviewer");

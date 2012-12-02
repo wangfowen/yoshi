@@ -1,0 +1,8 @@
+<div id="index"></div>
+
+<script>
+	var posts = new collections.Posts({current: true});
+	posts.fetch({success: function() {
+		new views.PostsMyPostsView({el: "#index", collection: posts});	
+	}});
+</script>
