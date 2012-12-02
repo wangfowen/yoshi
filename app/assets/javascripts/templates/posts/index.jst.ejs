@@ -2,11 +2,12 @@
 <% posts.each(function(post) { %>
 <a href="/posts/<%= post.get("id") %>">
 	<div class="row post">
-		<p><%= post.get("title") %></p>
-		<p><%= posts.getCategory(post.get("category")) %></p>
-		<p><%= post.get("description") %></p>
-		<p><%= post.get("candidate_name") %></p>
-		<p><%= post.get("deadline") %></p>
+		<p>Posted: <%= post.get("created_at") %></p>
+		<p>Title: <%= post.get("title") %></p>
+		<p>Category: <%= posts.getCategory(post.get("category")) %></p>
+		<p>Description: <%= post.get("description") %></p>
+		<p>Candidate Name: <%= post.get("candidate_name") %></p>
+		<p>Deadline: <%= post.get("deadline") %></p>
 	</div>
 </a>
 <% }) %>

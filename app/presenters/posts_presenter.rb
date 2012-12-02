@@ -14,6 +14,8 @@ class PostsPresenter
     #post user's name
     #timestamp
     #user's photo
-    @post.attributes.merge('a' => 'b')
+    created_at = @post.created_at.nil? ? nil : @post.created_at.strftime("%D")
+    deadline = @post.deadline.nil? ? nil : @post.deadline.strftime("%D")
+    @post.attributes.except("created_at", "deadline").merge("created_at" => created_at, "deadline" => deadline)
   end
 end
