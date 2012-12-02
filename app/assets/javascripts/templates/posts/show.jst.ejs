@@ -1,27 +1,42 @@
-<h1><%= post.get("title") %></h1>
-<div>
-	<p><img src="<%= post.get("profile_pic_url") %>"></p>
-	<p>Poster: <a id="show_user" data-user="<%= post.get("user_id") %>" href="#"><%= post.get("user") %></a></p>
-	<p>Posted on: <%= post.get("created_at") %></p>
-	<p>Category: <%= post.getCategory() %></p>
-	<p>Description: <%= post.get("description") %></p>
-	<p>Candidate Name: <%= post.get("candidate_name") %></p>
-	<p>Deadline: <%= post.get("deadline") %></p>
+<div class="container">
+<div class="row">
+	<div class="span1"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
+	<div class="span11">
+		<div class="title"><%= post.get("title") %> <span class="right"><%= post.get("created_at") %></span></div>
+		<p class="poster"><strong>Poster</strong>: <a id="show_user" data-user="<%= post.get("user_id") %>" href="#"><%= post.get("user") %></a></p>
+		<p><strong>Category</strong>: <%= post.getCategory() %></p>
+	</div>
+</div>
+<div class="row description">
+<div class="span12"><strong>Description</strong>: <%= post.get("description") %>
+</div>
+</div>
 </div>
 
-<% if (post.get("application_status") === -1) { %>
-	<% if (current_user.get("id") !== post.get("user_id")) { %>
-		<button class="btn" id="apply">Apply for Interview</button>
+<div class="modal_footer">
+<div class="container">
+<div class="row">
+<div class="span1"><img src="assets/Interviewee_Icon.jpg"></div>
+<div class="span11">
+<p class="interviewee"><strong>Interviewee</strong>: <%= post.get("candidate_name") %></p>
+<p><strong>Deadline</strong>: <%= post.get("deadline") %></p>
+<% if (!current_user || (current_user.get("id") !== post.get("user_id"))) { %>
+	<% if (post.get("application_status") === -1) { %>
+		<button class="btn" id="apply"></button>
 	<% } %>
 <% } else { %>
-	<h3>Applicants</h3>
 	<% if (post.get("application_status") === false) { %>
+		<h3>Applicants</h3>
 		<% applications.each(function(application) { %>
 		  <p><a href="/users/<%= application.get("applicant_id") %>">View Applicant</a></p>
 		  <p><a data-application="<%= application.get("id") %>" class="accept">Accept Applicant</a></p>
 		<% }) %>
-	<% } else { %>
+	<% } else if (post.get("application_status") !== -1) { %>
 		<p><a href="/users/<%= post.get("application_status") %>">View Accepted Applicant</a></p>
 		<p><a data-application="<%= post.get("id") %>" class="show_evaluation">View Evaluation</a></p>
 	<% } %>
 <% } %>
+</div>
+</div>
+</div>
+</div>

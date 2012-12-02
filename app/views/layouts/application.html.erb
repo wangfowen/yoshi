@@ -12,7 +12,7 @@
         
         <style>
             body {
-                padding-top: 60px;
+                padding-top: 120px;
                 padding-bottom: 40px;
             }
         </style>
@@ -34,30 +34,28 @@
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="/">Yoshi</a>
-
-                    <ul class="nav nav-pills">
-                        <li class="<%= 'active' if current_page?(root_path) %>"><a href="/">Home</a></li>
-                        <% if signed_in? %>
-                        <li class="<%= 'active' if current_page?(my_posts_path) %>"><a href="/my_posts">My Posts</a></li>
-                        <li class="<%= 'active' if current_page?(my_interviews_path) %>"><a href="/my_interviews">My Interviews</a></li>
-                        <% end %>
-                    </ul>
-                    <% if signed_in? %>
-                    <%= link_to 'Sign out', destroy_user_session_path, method: "delete", class: "pull-right"%></li>
-                    <% else %>
-                    <%= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin), class: "pull-right" %>
-                    <% end %>
-                </div>
-            </div>
-            
-        </div>
+        <header>
+            <ul class="menu">
+                <li><a class="<%= 'active' if current_page?(root_path) %>" href="/">Unfilled Posts</a></li>
+                <% if signed_in? %>
+                <li><a class="<%= 'active' if current_page?(my_posts_path) %>" href="/my_posts">My Posts</a></li>
+                <li><a class="<%= 'active' if current_page?(my_interviews_path) %>" href="/my_interviews">My Interviews</a></li>
+                <%= link_to 'Sign out', destroy_user_session_path, method: "delete" %></li>
+                <% else %>
+                <%= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin) %>
+                <% end %>
+            </ul>
+        </header>
 
         <div class="container">
-            <%= yield %>
+            <div class="row">
+                <div class="span4" id="logo">
+                    <div class="logo"></div>
+                </div>
+                <div class="span8" id="main">
+                    <%= yield %>
+                </div>
+            </div>
         </div>
 
         <script>
