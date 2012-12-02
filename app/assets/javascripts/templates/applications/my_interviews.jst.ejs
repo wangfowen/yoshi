@@ -15,6 +15,6 @@
 			<div class="interviewee"><strong>Interviewee</strong>: <%= application.get("candidate_name") %></div>
 			<div><strong>Deadline</strong>: <%= application.get("deadline") %></div>
 		</div>
-		<div style="float: right"><img src="assets/<%= application.get("booked") ? "Approved_TAG.jpg" : "Pending_TAG.jpg" %>"></div>
+		<div style="float: right; margin-top: 10px"><img src="assets/<%= application.get("booked") ? "Approved_TAG.jpg" : "Pending_TAG.jpg" %>"></div>
 	</div>
 <% }) %>

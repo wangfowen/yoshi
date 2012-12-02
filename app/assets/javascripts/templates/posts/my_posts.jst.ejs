@@ -6,7 +6,12 @@
   <div class="container">
   <div class="row">
   <div class="span12">
-  	<p class="title"><%= post.get("title") %></p>
+  	<p class="title">
+      <%= post.get("title") %>
+      <% if (post.get("num_applicants") > 0 && (post.get("application_status") === false)) { %>
+      <span class="red">[<%= post.get("num_applicants") %>]</span> 
+      <% } %>
+    </p>
   	<p class="category"><strong>Category</strong>: <%= posts.getCategory(post.get("category")) %></p>
   	<p class="deadline"><strong>Deadline</strong>: <%= post.get("deadline") %></p>
   </div>
