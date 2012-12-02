@@ -6,7 +6,10 @@ Yoshi::Application.routes.draw do
     get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  resources :posts
+  resources :posts do
+    resources :applications
+  end
+  
   resources :users
   resources :evaluations
   resources :bookings

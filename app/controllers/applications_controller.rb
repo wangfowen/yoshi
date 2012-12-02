@@ -2,7 +2,8 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
+    @applications = Application.find_all_by_post_id(params[:post_id]) if params[:post_id]
+    @applications = Application.all unless params[:post_id]
 
     respond_to do |format|
       format.html # index.html.erb
