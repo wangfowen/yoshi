@@ -73,7 +73,11 @@ a:hover {
 }
 
 .modal_footer {
-	border-top: 1px dashed #000;
+	border-top: 1px dotted #9D9D9D;
+}
+
+.description {
+	margin: 15px 0;
 }
 
 .right {
