@@ -1,7 +1,7 @@
 <div id="index"></div>
 
 <script>
-	var posts = new collections.Posts();
+	var posts = new collections.Posts({});
 	posts.fetch({success: function() {
 		new views.PostsIndexView({el: "#index", collection: posts});	
 	}});
