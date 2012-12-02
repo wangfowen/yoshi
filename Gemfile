@@ -12,6 +12,8 @@ gem 'ejs'
 
 gem 'opentok'
 
+gem 'state_machine'
+
 group :development do
   gem 'sqlite3'
 end
