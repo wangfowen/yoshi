@@ -32,7 +32,10 @@
 	 
 	 
 	function chatStateChangedHandler(event) {
-		$('#chatbox').val($('#chatbox').val() + event.changedValues["chat"] + '\n');
+		if (event.changedValues["chat"] != null) {
+			$('#chatbox').append(event.changedValues["chat"] + '\n');
+			$('#chatbox').scrollTop($('#chatbox')[0].scrollHeight - $('#chatbox').height());
+		}
 		//alert("asdasd");
 	}
 	
