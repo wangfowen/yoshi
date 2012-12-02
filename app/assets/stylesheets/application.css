@@ -158,6 +158,7 @@ header {
 
 .menu a.active {
 	font-weight: bold;
+	border-bottom: 3px solid #59B958;
 }
 
 .menu li {

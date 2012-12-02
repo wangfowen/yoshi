@@ -14,7 +14,9 @@
 </div>
 
 <div class="modal_footer">
-<div class="span1"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
+<div class="container">
+<div class="row">
+<div class="span1"><img src="assets/Interviewee_Icon.jpg"></div>
 <div class="span11">
 <p class="interviewee"><strong>Interviewee</strong>: <%= post.get("candidate_name") %></p>
 <p><strong>Deadline</strong>: <%= post.get("deadline") %></p>
@@ -34,4 +36,7 @@
 		<p>View Evaluation</p>
 	<% } %>
 <% } %>
+</div>
+</div>
+</div>
 </div>
