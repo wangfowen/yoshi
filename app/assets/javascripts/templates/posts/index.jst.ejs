@@ -1,27 +1,25 @@
-<h1>Unfilled Posts</h1>
-<button type="submit" id="new_post" class="btn">Add Post</button>
-
 <% posts.each(function(post) { %>
+
 <button class="post" data-toggle="modal" href="#show_content" data-post="<%= post.get("id") %>">
-	<p><img src="<%= post.get("profile_pic_url") %>"></p>
-	<p>Poster: <%= post.get("user") %></p>
-	<p>Posted on: <%= post.get("created_at") %></p>
-	<p>Title: <%= post.get("title") %></p>
-	<p>Category: <%= posts.getCategory(post.get("category")) %></p>
-	<p>Description: <%= post.get("description") %></p>
-	<p>Candidate Name: <%= post.get("candidate_name") %></p>
-	<p>Deadline: <%= post.get("deadline") %></p>
+<div class="container">
+<div class="row">
+	<div class="span2"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
+	<div class="span10">
+		<p class="title"><%= post.get("title") %></p>		
+		<p class="category">Category: <%= posts.getCategory(post.get("category")) %></p>
+		<p class="deadline">Deadline: <%= post.get("deadline") %></p>
+	</div>
+</div>
+</div>
 </button>
 <% }) %>
+
+<button type="submit" id="new_post" class="btn">✚&nbsp;&nbsp;Add Post</button>
 
 <div id="show_content" class="modal hide fade">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
   </div>
   <div id="content" class="modal-body">
-
-  </div>
-  <div class="modal-footer">
-    <button type="button" data-dismiss="modal" class="btn">Close</button>
   </div>
 </div>
