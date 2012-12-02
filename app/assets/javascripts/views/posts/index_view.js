@@ -5,5 +5,8 @@ views.PostsIndexView = Backbone.View.extend({
   },
   render: function() {
   	this.$el.html(this.template({posts: this.collection}));
+  	if ($.url().param('success') == 1) {
+  		alertify.success( "Post successfully created");
+  	}
   }
 });

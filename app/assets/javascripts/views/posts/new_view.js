@@ -9,7 +9,10 @@ views.PostsNewView = Backbone.View.extend({
   render: function() {
   	this.$el.html(this.template());
 
-  	$('#deadline').datepicker();
+  	$('#deadline').datepicker().on('changeDate', function(e){
+      $('.datepicker').hide();
+    });
+  
   },
   createPost: function(e) {
   	e.stopPropagation();
@@ -31,10 +34,10 @@ views.PostsNewView = Backbone.View.extend({
 
   	this.model.save({}, {
   		success: function() {
-  			window.location = "/";
+  			window.location = "/?success=1";
   		},
   		error: function() {
-  			console.log("oh no");
+  			alertify.error("An error occurred when saving");
   		}
   	});
   }

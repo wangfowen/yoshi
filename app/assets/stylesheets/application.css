@@ -13,6 +13,7 @@
  *= require bootstrap.min
  *= require bootstrap-responsive.min
  *= require datepicker
+ *= require alertify
 */
 
 .spinner {
