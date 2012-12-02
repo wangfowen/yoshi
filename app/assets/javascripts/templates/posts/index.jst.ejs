@@ -6,8 +6,8 @@
 	<div class="span1"><img class="prof-pic" src="<%= post.get("profile_pic_url") %>"></div>
 	<div class="span11">
 		<p class="title"><%= post.get("title") %></p>		
-		<p class="category">Category: <%= posts.getCategory(post.get("category")) %></p>
-		<p class="deadline">Deadline: <%= post.get("deadline") %></p>
+		<p class="category"><strong>Category</strong>: <%= posts.getCategory(post.get("category")) %></p>
+		<p class="deadline"><strong>Deadline</strong>: <%= post.get("deadline") %></p>
 	</div>
 </div>
 </div>

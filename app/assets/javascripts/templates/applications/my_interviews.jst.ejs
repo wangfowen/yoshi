@@ -1,6 +1,20 @@
 <h1>My Interviews</h1>
 
 <% applications.each(function(application) { %>
-  <p>Status: <%= application.get("booked") ? "Accepted" : "Pending" %></p>
-  <p><a href="/posts/<%= application.get("post_id") %>">View Post</a></p>
+	<div class="row">
+		<div class="title"><%= application.get("title") %> <span class="partial-right"><%= application.get("created_at") %></span></div>		
+		<p class="name"><strong>Name</strong>: <%= application.get("name") %></p>
+		<p class="category"><strong>Category</strong>: <%= application.get("category") %></p>
+	</div>
+	<div class="row description" style="border-bottom: 1px dotted #9D9D9D">
+		<strong>Description</strong>: <%= application.get("description") %>
+	</div>
+	<div class="row" style="margin-bottom: 40px; padding-top: 10px">
+		<div style="float: left"><img class="interviewee_icon" src="assets/Interviewee_Icon.jpg"></div>
+		<div style="float: left; margin-left: 40px">
+			<div class="interviewee"><strong>Interviewee</strong>: <%= application.get("candidate_name") %></div>
+			<div><strong>Deadline</strong>: <%= application.get("deadline") %></div>
+		</div>
+		<div style="float: right"><img src="assets/<%= application.get("booked") ? "Approved_TAG.jpg" : "Pending_TAG.jpg" %>"></div>
+	</div>
 <% }) %>

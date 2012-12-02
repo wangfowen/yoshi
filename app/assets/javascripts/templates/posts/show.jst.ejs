@@ -8,16 +8,15 @@
 	</div>
 </div>
 <div class="row description">
-<div class="span12"><strong>Description</strong>: <%= post.get("description") %>
-</div>
+	<div class="span12"><strong>Description</strong>: <%= post.get("description") %></div>
 </div>
 </div>
 
 <div class="modal_footer">
 <div class="container">
 <div class="row">
-<div class="span1"><img src="assets/Interviewee_Icon.jpg"></div>
-<div class="span11">
+<div class="span1"><img class="interviewee_icon" src="assets/Interviewee_Icon.jpg"></div>
+<div class="span4">
 <p class="interviewee"><strong>Interviewee</strong>: <%= post.get("candidate_name") %></p>
 <p><strong>Deadline</strong>: <%= post.get("deadline") %></p>
 <% if (!current_user || (current_user.get("id") !== post.get("user_id"))) { %>

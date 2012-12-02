@@ -29,6 +29,11 @@
 
 a:hover {
 	text-decoration: none !important;
+	background: none !important;
+}
+
+a:active {
+	color: #000;
 }
 
 .post {
@@ -38,6 +43,11 @@ a:hover {
 	border: none;
 	text-align: left;
 	margin: 10px 0;
+}
+
+.interviewee_icon {
+	margin-left: 20px;
+	margin-top: 17px;
 }
 
 .title {
@@ -95,12 +105,17 @@ a:hover {
 
 .description {
 	margin-top: 5px;
-	margin-bottom: 15px;
+	padding-bottom: 15px;
 }
 
 .right {
 	position: absolute;
 	right: 45px;
+}
+
+.partial-right {
+	position: absolute;
+	right: 160px;
 }
 
 #show_content {
@@ -164,4 +179,13 @@ header {
 .menu li {
 	display: inline;
 	margin: 10px 30px;
+}
+
+h1 {
+	color: #59B958 !important;
+	font-size: 24px !important;
+}
+
+.name {
+	margin-top: 10px;
 }
