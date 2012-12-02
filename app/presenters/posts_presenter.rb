@@ -15,7 +15,7 @@ class PostsPresenter
     deadline = @post.deadline.nil? ? nil : @post.deadline.strftime("%D")
     
     applications = Application.find_all_by_post_id(@post.id)
-    application_status = applications.select { |application| !application.booked? }
+    application_status = applications.select { |application| application.booked? }
 
     if application_status.empty?
       application_status = false
