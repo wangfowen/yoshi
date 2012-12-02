@@ -17,7 +17,6 @@ gem 'state_machine'
 gem 'sqlite3'
 
 group :production do
-  gem 'pg'
   gem 'unicorn'
 end
 
