@@ -72,6 +72,7 @@ class EvaluationsController < ApplicationController
   # PUT /evaluations/1.json
   def update
     @evaluation = Evaluation.find(params[:id])
+    @evaluation.completed = true
 
     respond_to do |format|
       if @evaluation.update_attributes(params[:evaluation])

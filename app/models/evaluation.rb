@@ -4,5 +4,7 @@ class Evaluation < ActiveRecord::Base
 	belongs_to :post
 	belongs_to :evaluator, class_name: "User"
 
-
+	before_save do |evaluation|
+		evaluation.post.booking.update_attribute(:conducted, true)
+	end
 end
