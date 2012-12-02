@@ -14,12 +14,13 @@ views.PostsNewView = Backbone.View.extend({
     });  
   },
   createPost: function(e) {
-  	e.stopPropagation();
-  	e.preventDefault();
+    if (true) {
+      e.stopPropagation();
+      e.preventDefault();
 
-  	var $spinner = $('.spinner');
+      var $spinner = $('.spinner');
 
-  	$spinner.css("display", "inline-block");
+      $spinner.css("display", "inline-block");
 
   	this.model.set({
       post: {
@@ -33,13 +34,17 @@ views.PostsNewView = Backbone.View.extend({
       }
   	});
 
-  	this.model.save({}, {
-  		success: function() {
-  			window.location = "/?success=1";
-  		},
-  		error: function() {
-  			alertify.error("An error occurred when saving");
-  		}
-  	});
+      this.model.save({}, {
+        success: function() {
+          window.location = "/?success=1";
+        },
+        error: function() {
+          alertify.error("An error occurred when saving");
+        }
+      });
+    }
+    else {
+      alertify.error("Please Sign in first before posting a new interview");
+    } 
   }
 });
