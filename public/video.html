@@ -44,19 +44,25 @@
       session.publish(publisher);
 
       // Subscribe to streams that were in the session when we connected
-      subscribeToStreams(event.streams);
+	  var props = {width: 360,
+					 height: 270};
+      subscribeToStreams(event.streams, props);
 	  
 	  stateManager = session.getStateManager();
-	  stateManager.addEventListener("changed:chat", chatStateChangedHandler {width: 120
-																			 height: 90});
+	  
+					 
+	  stateManager.addEventListener("changed:chat", chatStateChangedHandler);
     }
 
     function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
-      subscribeToStreams(event.streams);
+	  	var props = {width: 120,
+					 height: 90};
+					 
+      subscribeToStreams(event.streams, props);
     }
 
-    function subscribeToStreams(streams) {
+    function subscribeToStreams(streams, props) {
       for (var i = 0; i < streams.length; i++) {
         // Make sure we don't subscribe to ourself
         if (streams[i].connection.connectionId == session.connection.connectionId) {
@@ -69,8 +75,8 @@
         document.body.appendChild(div);*/
 
         // Subscribe to the stream
-        session.subscribe(streams[i], "other", {width: 360,
-												height: 270});
+	
+        session.subscribe(streams[i], "other", props);
 		
       }
     }
