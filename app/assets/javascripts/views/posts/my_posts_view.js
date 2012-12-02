@@ -2,7 +2,8 @@ views.PostsMyPostsView = Backbone.View.extend({
   template: JST["templates/posts/my_posts"],
   events: {
     'click #new_post': 'newPost',
-    'click .post': 'showPost'
+    'click .post': 'showPost',
+    'click #see-evaluation': 'showEvaluation'
   },
   initialize: function() {
     this.render();	
@@ -25,5 +26,23 @@ views.PostsMyPostsView = Backbone.View.extend({
         new views.PostsShowView({el: "#content", model: post});
       }
     });
+  },
+  showEvaluation: function(e) {
+    var id = $(e.target).closest('button').data('post')
+    evaluation = new models.Evaluation({ _post_id: id});
+    evaluation.fetch({
+      success: function() {
+        console.log("success");
+        //if (evaluation.get("id") !== undefined) {
+          new views.EvaluationsShowView({el: "#content", model: evaluation});
+          //window.location.href = "evaluations/" + evaluation.get("id");
+        //} else {
+          //alertify.error("Error fetching evaluation. No Evaluations available for this posting");
+        //}
+      },
+      error: function() {
+        alertify.error("Error fetching evaluation");
+      }
+    })
   }
 });
