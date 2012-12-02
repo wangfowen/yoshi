@@ -14,9 +14,7 @@ gem 'opentok'
 
 gem 'state_machine'
 
-group :development do
-  gem 'sqlite3'
-end
+gem 'sqlite3'
 
 group :production do
   gem 'pg'
@@ -47,7 +45,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
